@@ -1,0 +1,122 @@
+$my-position: center
+$dark-color: black
+$hover-color: #ccc
+
+body
+	padding: 0
+	margin: 0
+
+
+ul
+	li
+		text-align: $my-position
+		display: inline-block
+		list-style: none
+		float: right
+		a
+			padding: 20px
+			display: inline-block
+			text-decoration: none
+			color: $dark-color
+			&:hover
+				color: $hover-color
+    		
+    		
+.row:after
+	content: ""
+	clear: both
+	display: block
+
+
+.container
+	max-width: 1200px
+	margin: 0 auto
+	
+	
+.gallery
+	margin: 5vh auto
+	overflow: auto
+	
+	
+.photo
+	float: left
+	width: 30%
+	margin-right: 5%
+	max-height: 30vh
+	&:last-of-type
+		margin-right: 0
+	img
+		width: 100%
+		height: auto
+		
+		
+
+.main
+	height: 100vh
+	background: url('http://cache.marriott.com/Images/HWS_Messages/Meetings_In_New_York.jpg')
+	background-size: cover
+	padding: 5%
+	margin: auto
+	background-color: #ecf0f1
+	h1
+		text-transform: uppercase
+		color: white
+		font-size: 8vh
+		text-shadow: 2px 2px $dark-color
+		text-align: center
+
+
+
+.clearfix::after
+	content: ""
+	clear: both
+	display: table
+
+.map
+	width: 100%
+	height: auto
+	overflow: auto
+	
+
+@for $i from 1 through 12 {
+	.col-#{$i}
+	{ width: 8.33% * $i; }
+}
+
+@for $i from 1 through $gridsize
+	.col-#{$i}
+	width: ( $i / $gridsize ) *100%
+
+@for $i from 1 through $gridsize
+	.col-offset-#{$i}
+		width:  ( $i / $gridsize ) *100%
+	
+
+@media (min-width: 768px) and (max-width: 1199px )
+	a
+		padding: 10px
+	
+	.photo
+		margin-right: 5%
+	
+
+@media (max-width: 767px)
+	.row
+		display: block
+	
+	ul
+		li
+			display: block
+			text-align: $my-position
+			float: none
+			width: 100%
+	
+	.gallery
+		float: none
+
+
+
+
+
+
+
